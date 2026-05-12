@@ -1,0 +1,29 @@
+[project]
+name = "raph-meris-backend"
+version = "0.1.0"
+description = "Backend service for raph-meris"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115.0,<1.0.0",
+  "uvicorn[standard]>=0.30.0,<1.0.0",
+  "sqlalchemy>=2.0.0,<3.0.0",
+  "psycopg[binary]>=3.2.0,<4.0.0",
+  "pydantic>=2.8.0,<3.0.0",
+  "pydantic-settings>=2.4.0,<3.0.0",
+  "alembic>=1.13.0,<2.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+exclude = ["alembic*"]
+
+[tool.uv]
+dev-dependencies = [
+  "pytest>=8.0.0,<9.0.0",
+  "ruff>=0.6.0,<1.0.0",
+]
